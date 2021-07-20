@@ -55,7 +55,7 @@ class PlayerSelect extends Component {
               <img
                 className="pawn-logo"
                 alt={pawn}
-                src={`./logos/${pawn}-pawn.png`} />
+                src={`./images/${pawn}-pawn.png`} />
             </div>
           ))
         }

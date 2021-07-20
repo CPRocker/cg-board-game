@@ -77,7 +77,11 @@ class GameBoard extends Component {
               }}
               key={i} 
               className="game-square">
-              {square.type}
+              {
+                (square.type === 'start') ?
+                'Rest due to JavaScript Fatigue' :
+                <img src={`./images/${square.type}.png`} />
+              }
             </div>
           ));
         }
