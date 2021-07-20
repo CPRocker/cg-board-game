@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import Players from '../components/Players';
+
 class PlayerSelect extends Component {
   state = {
     pawns: ['angular', 'js', 'react', 'vue'],
@@ -8,38 +10,40 @@ class PlayerSelect extends Component {
   };
 
   setPlayer = (pawn) => {
-    this.setState((prevState) => ({
-      currentPlayerSelect: prevState.currentPlayerSelect,
-      players: [
-        ...prevState.players, {
-          number: prevState.currentPlayerSelect,
-          pawn
+    if(this.state.players.find(player => player.pawn === pawn)) {
+      alert('Looks like you two know what is best. No need to play!');
+    } else {
+      this.setState((prevState) => ({
+        currentPlayerSelect: prevState.currentPlayerSelect,
+        players: [
+          ...prevState.players, {
+            number: prevState.currentPlayerSelect,
+            pawn
+          }
+        ]
+      }), () => {
+        // now we know state is the latest...
+        if (this.state.players.length === 2) {
+          this.props.startGame(this.state.players);
         }
-      ]
-    }), () => {
-      // now we know state is the latest...
-      if (this.state.players.length === 2) {
-        this.props.startGame(this.state.players);
-      }
-    });
+      });
+    }
+  }
+
+  startGame = () => {
+    this.props.startGame(this.state.players);
   }
 
   render() {
     return (
+      this.state.readyToStart ? 
       <React.Fragment>
-        <div className="players">
-          {
-            this.state.players.map(player => (
-              <div>
-                <p>Player {player.number}</p>
-                <img
-                  className="player-pawn"
-                  alt={player.pawn}
-                  src={`./pawns/${player.pawn}-pawn.png`} />
-              </div>
-            ))
-          }
-        </div>
+        <h1>Click Start to Begin!</h1>
+        <button 
+          onClick={this.startGame} className="start-button">Start</button>
+      </React.Fragment> :
+      <React.Fragment>
+        <Players players = {this.state.players} />
         <h1>Player {this.state.currentPlayerSelect}, Select a Pawn:</h1>
         {
           this.state.pawns.map(pawn => (

@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
+
+import Players from './components/Players';
+
+import GameBoard from './containers/GameBoard';
 import PlayerSelect from './containers/PlayerSelect';
 
 class App extends Component {
@@ -9,13 +13,21 @@ class App extends Component {
   };
 
   startGame = (players) => {
-    // starts game
+    this.setState({
+      players,
+      gameStarted: true
+    });
   }
 
   render() {
     return (
       <div className="App">
-        <PlayerSelect startGame={this.startGame} />
+        <Players players = { this.state.players } />
+        {
+          this.state.gameStarted ?
+          <GameBoard players = { this.state.players } /> :
+          <PlayerSelect startGame={this.startGame} />
+        }
       </div>
     );
   }

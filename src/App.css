@@ -46,7 +46,7 @@
   display: block;
   height: 100px;
   width: 300px;
-  background-color: blue;
+  background-color: teal;
   color: white;
   padding: 20px;
   border: 8px solid black;
@@ -59,4 +59,11 @@
 
 .start-button:hover {
     opacity: 0.8;
+}
+
+.game-board {
+  width: 60%;
+  height: 60%;
+  outline: 2px solid black;
+  display: grid;
 }
