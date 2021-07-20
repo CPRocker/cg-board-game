@@ -26,7 +26,8 @@ class GameBoard extends Component {
     let i = 0;
     let row = 1;
     let col = 2;
-    while(col > 1 && row > 1) {
+    let total_squares = (grid_size * 2 + (grid_size - 2) * 2);
+    while(squares.length < total_squares) {
       const square = {
         row,
         col
@@ -45,13 +46,13 @@ class GameBoard extends Component {
       squares.push(square);
       i++;
 
-      if(row === 1 && col < grid_size) {
+      if(i < grid_size) {
         col++;
-      } else if(row === grid_size && col > 1) {
-        col--;
-      } else if(col === grid_size) {
+      } else if(i < 2 * grid_size - 1) {
         row++;
-      } else if(col === 1) {
+      } else if(i < 3 * grid_size - 2) {
+        col--;
+      } else {
         row--;
       }
     }
