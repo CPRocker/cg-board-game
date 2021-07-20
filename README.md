@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-This project was created using the tutorial [Newb Quest - Front-end-opoly with React] (https://www.youtube.com/watch?v=zUkrx1Vd1G4) which was created by [Coding Garden] (https://www.youtube.com/channel/UCLNgu_OupwoeESgtab33CCw).
+This project was created using the tutorial [Newb Quest - Front-end-opoly with React](https://www.youtube.com/watch?v=zUkrx1Vd1G4) which was created by [Coding Garden](https://www.youtube.com/channel/UCLNgu_OupwoeESgtab33CCw).
 
 ## Running on Repl.it
 
