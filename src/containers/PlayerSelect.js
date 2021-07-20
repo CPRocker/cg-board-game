@@ -43,7 +43,7 @@ class PlayerSelect extends Component {
         <h1>Player {this.state.currentPlayerSelect}, Select a Pawn:</h1>
         {
           this.state.pawns.map(pawn => (
-            <div className="pawnContainer" key={pawn} onClick={() => this.setPlayer(pawn)} >
+            <div className="pawn-container" key={pawn} onClick={() => this.setPlayer(pawn)} >
               <img
                 className="pawn"
                 alt={pawn}
