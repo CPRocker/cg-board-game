@@ -4,7 +4,9 @@ const Players = ({ players }) => (
   <div className="players">
     {
       players.map(player => (
-        <div>
+        <div 
+          className="player"
+          key={player.number}>
           <p>Player {player.number}</p>
           <img
             className="player-pawn"

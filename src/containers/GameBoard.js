@@ -69,9 +69,9 @@ class GameBoard extends Component {
 
     return (
       <div className="game-board"
-      style={{
-        gridTemplate: `repeat(${grid_size}, 1fr)/repeat(${grid_size}, 1fr)`
-      }}>
+        style={{
+          gridTemplate: `repeat(${grid_size}, 1fr) /repeat(${grid_size}, 1fr)`
+        }}>
         {
           this.state.squares.map((square, i) => (
             <div
@@ -94,8 +94,9 @@ class GameBoard extends Component {
         {
           playerLocations.map((location, i) => (
             <div 
-              className="player-avatar">
-              <img class="pawn" src="./pawns/angular-pawn.png"
+              className="player-avatar"
+              key={i}>
+              <img className="pawn" src="./pawns/angular-pawn.png"
               alt="player-avatar"/>
             </div>
           ))

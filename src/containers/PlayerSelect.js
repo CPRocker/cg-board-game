@@ -14,7 +14,7 @@ class PlayerSelect extends Component {
       alert('Looks like you two know what is best. No need to play!');
     } else {
       this.setState((prevState) => ({
-        currentPlayerSelect: prevState.currentPlayerSelect,
+        currentPlayerSelect: prevState.currentPlayerSelect + 1,
         players: [
           ...prevState.players, {
             number: prevState.currentPlayerSelect,
@@ -45,20 +45,22 @@ class PlayerSelect extends Component {
       <React.Fragment>
         <Players players = {this.state.players} />
         <h1>Player {this.state.currentPlayerSelect}, Select a Pawn:</h1>
-        {
-          this.state.pawns.map(pawn => (
-            <div className="pawn-container" key={pawn} onClick={() => this.setPlayer(pawn)} >
-              <img
-                className="pawn"
-                alt={pawn}
-                src={`./pawns/${pawn}-pawn.png`} />
-              <img
-                className="pawn-logo"
-                alt={pawn}
-                src={`./images/${pawn}-pawn.png`} />
-            </div>
-          ))
-        }
+        <div className="pawns">
+          {
+            this.state.pawns.map(pawn => (
+              <div className="pawn-container" key={pawn} onClick={() => this.setPlayer(pawn)} >
+                <img
+                  className="pawn"
+                  alt={pawn}
+                  src={`./pawns/${pawn}-pawn.png`} />
+                <img
+                  className="pawn-logo"
+                  alt={pawn}
+                  src={`./images/${pawn}.png`} />
+              </div>
+            ))
+          }
+        </div>
       </React.Fragment>
     );
   }

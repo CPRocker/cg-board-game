@@ -8,13 +8,17 @@
   background: linear-gradient(to bottom, rgb(206, 220, 231) 0%, rgb(65, 122, 136) 100%);
 }
 
+.pawns {
+  display: flex;
+}
+
 .pawn-container {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
 }
 
-.pawn, player-pawn {
+.pawn, .player-pawn {
   width: 100px;
   height: 100px;
   cursor: pointer;
@@ -26,7 +30,7 @@
 }
 
 .pawn:hover {
-    transform: scale(1.5);
+  transform: scale(1.5);
 }
 
 .players {
