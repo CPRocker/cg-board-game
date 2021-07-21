@@ -117,7 +117,7 @@ class GameBoard extends Component {
                 className="player-avatar">
                 <img 
                   className="pawn" 
-                  src={`./pawns/${player.pawn}-pawn.png`}}
+                  src={`./pawns/${player.pawn}-pawn.png`}
                   alt="player.number"/>
               </div>
             )
