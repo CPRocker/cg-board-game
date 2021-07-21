@@ -62,6 +62,10 @@ class GameBoard extends Component {
 
   render() {
     const { grid_size } = this.state;
+    const { players } = this.props;
+    const playerLocations = players.map(player => (
+      this.state.squares[player.location]
+    ));
 
     return (
       <div className="game-board"
@@ -80,10 +84,21 @@ class GameBoard extends Component {
               {
                 (square.type === 'start') ?
                 'Rest due to JavaScript Fatigue' :
-                <img src={`./images/${square.type}.png`} />
+                <img 
+                  src={`./images/${square.type}.png`}
+                  alt={square.type} />
               }
             </div>
-          ));
+          ))
+        }
+        {
+          playerLocations.map((location, i) => (
+            <div 
+              className="player-avatar">
+              <img class="pawn" src="./pawns/angular-pawn.png"
+              alt="player-avatar"/>
+            </div>
+          ))
         }
       </div>
     );

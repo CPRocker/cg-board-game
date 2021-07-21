@@ -3,7 +3,7 @@ import React from 'react';
 const Players = ({ players }) => (
   <div className="players">
     {
-      props.players.map(player => (
+      players.map(player => (
         <div>
           <p>Player {player.number}</p>
           <img

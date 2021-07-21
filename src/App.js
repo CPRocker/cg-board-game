@@ -14,7 +14,11 @@ class App extends Component {
 
   startGame = (players) => {
     this.setState({
-      players,
+      players: players.map(player => ({
+        ...player,
+        location: 0,
+        score: 0
+      })),
       gameStarted: true
     });
   }
