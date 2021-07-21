@@ -12,6 +12,7 @@ const Players = ({ players }) => (
             className="player-pawn"
             alt={player.pawn}
             src={`./pawns/${player.pawn}-pawn.png`} />
+          <p className="player-score">{player.score}</p>
         </div>
       ))
     }

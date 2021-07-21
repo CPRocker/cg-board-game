@@ -44,7 +44,11 @@
   text-align: center;
 }
 
-.start-button {
+.player-score {
+  font-size: 3em;
+}
+
+.button {
   margin: auto;
   text-align: center;
   position: relative;
@@ -62,7 +66,7 @@
   cursor: pointer;
 }
 
-.start-button:hover {
+.button:hover {
     opacity: 0.8;
 }
 
@@ -87,4 +91,29 @@
 .game-square img {
   width: 80%;
   height: auto;
+}
+
+.player-avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.player-avatar .pawn {
+  width: 50px;
+  height: auto;
+}
+
+.board-middle {
+  grid-column: 2 / -2;
+  grid-row: 2 / -2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: white;
+}
+
+.rolled-die {
+  font-size: 10em;
 }

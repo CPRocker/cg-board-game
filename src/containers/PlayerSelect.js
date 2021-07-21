@@ -40,7 +40,7 @@ class PlayerSelect extends Component {
       <React.Fragment>
         <h1>Click Start to Begin!</h1>
         <button 
-          onClick={this.startGame} className="start-button">Start</button>
+          onClick={this.startGame} className="button">Start</button>
       </React.Fragment> :
       <React.Fragment>
         <Players players = {this.state.players} />

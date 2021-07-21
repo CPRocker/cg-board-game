@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 class GameBoard extends Component {
   state = {
     squares: [],
-    grid_size: 5
+    grid_size: 5,
+    currentPlayer: 1
   };
 
   componentDidMount() {
@@ -39,9 +40,9 @@ class GameBoard extends Component {
         square.type = player_2.pawn;
       }
 
-      if(i % 3 === 0) {
-        square.type = 'face-off';
-      }
+      // if(i % 3 === 0) {
+      //   square.type = 'face-off';
+      // }
 
       squares.push(square);
       i++;
@@ -60,12 +61,23 @@ class GameBoard extends Component {
     return squares;
   }
 
+  rollDie = () => {
+    const dice = ['⚀','⚁', '⚂', '⚃', '⚄', '⚅'];
+    const index = Math.floor(dice.length * Math.random());
+    const rolledNumber = dice[index]
+    this.setState({
+      rolledNumber
+    });
+
+    this.props.movePlayer(index + 1, this.state.squares);
+  }
+
   render() {
     const { grid_size } = this.state;
-    const { players } = this.props;
-    const playerLocations = players.map(player => (
-      this.state.squares[player.location]
-    ));
+    let playerLocations = [];
+    if(this.state.squares.length > 0) {
+      playerLocations = this.props.players.map(player => this.state.squares[player.location % this.state.squares.length]);
+    }
 
     return (
       <div className="game-board"
@@ -92,15 +104,30 @@ class GameBoard extends Component {
           ))
         }
         {
-          playerLocations.map((location, i) => (
-            <div 
-              className="player-avatar"
-              key={i}>
-              <img className="pawn" src="./pawns/angular-pawn.png"
-              alt="player-avatar"/>
-            </div>
-          ))
+          playerLocations.map((location, i) => {
+            const player = this.props.players[i];
+
+            return (
+              <div 
+                key={player.number}
+                style={{
+                  gridRow: location.row,
+                  gridColumn: location.col
+                }}
+                className="player-avatar">
+                <img 
+                  className="pawn" 
+                  src={`./pawns/${player.pawn}-pawn.png`}}
+                  alt="player.number"/>
+              </div>
+            )
+          })
         }
+        <div className="board-middle">
+          <h2>Player {this.props.currentPlayer}, Roll the Die!</h2>
+          <p className="rolled-die">{ this.state.rolledNumber }</p>
+          <button onClick={this.rollDie} className="button">Roll</button>
+        </div>
       </div>
     );
   }
